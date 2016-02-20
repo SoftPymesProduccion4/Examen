@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="AppClors">
+<head>
+	<meta charset="UTF-8">
+	<title>Panel De Colores</title>
+	<link href="content/css/main.css" rel="stylesheet" />
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+    
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+        <script src="scripts/angular-route.min.js"></script>
+
+    <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.1.js"></script>-->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="app/app.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/services/ColoresServices.js"></script>
+	
+</head>
+<body>
+<h1>COLORES</h1>
+<div ng-controller="homeController">
+	
+
+	<div class="container" ng-controller="homeController">
+        <center>
+         <table class="colores table-bordered">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Creado Por</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="model in colores">
+                <th>                   
+                    <center>
+                        <input type="checkbox" ng-click="seleccionarRegistro(model)" ng-Model="model.selected" />
+                    </center>
+                </th>
+                  <td>{{model.code}}</td>
+                <td>{{model.name}}</td>
+                <td>{{model.createdBy}}</td>
+              </tr>
+            </tbody>
+         </table>
+        </center>
+           
+            <div>
+                <center>
+
+                    <button type="submit" class="btn btn-primary" ng-click="AgregarColor()">Agregar</button>
+                    <button type="submit" class="btn btn-primary" ng-click="EditThisItem(model.colorId)">Modificar</button>
+                   <button type="submit" class="btn btn-primary" ng-click="DeleteThisItem(model.colorId)">Eliminar</button>
+
+
+                </center>
+            </div>
+            
+             <script type="text/ng-template" id="AgregarColor.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">Agregar Color</h3>
+                    <hr />
+                    
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.code" 
+                               placeholder="Código">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.name" 
+                               placeholder="Nombre">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.createdBy" 
+                               placeholder="Creado Por">
+                            </div>
+                          </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" 
+                            type="button"
+                           
+                            ng-click="ok()">OK</button>
+                            <!-- ng-disabled="!(selected.item.code && selected.item.name && selected.item.createdBy)"-->
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+            
+            <script type="text/ng-template" id="ModificarColor.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">Modificar Color</h3>
+                    <hr />
+                    
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.code" 
+                               placeholder="Código">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.name" 
+                               placeholder="Nombre">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <input type="text" required
+                              class="form-control" ng-Model="selected.item.createdBy" 
+                               placeholder="Creado Por">
+                            </div>
+                          </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" 
+                            type="button"
+                           
+                            ng-click="ok()">OK</button>
+                            <!-- ng-disabled="!(selected.item.code && selected.item.name && selected.item.createdBy)"-->
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+            
+               <script type="text/ng-template" id="EliminarColor.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">Eliminar Color</h3>
+                    <hr />
+                    <h2>Está seguro que desea eliminar el item {{selected.item.name}} ?</h2>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" 
+                            type="button"                           
+                            ng-click="ok()">OK</button>
+                            <!-- ng-disabled="!(selected.item.code && selected.item.name && selected.item.createdBy)"-->
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+        </div>
+
+	
+</body>
+<!-- 3rd party libraries -->
+        
+
+</html>

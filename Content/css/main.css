@@ -1,0 +1,42 @@
+body
+{
+	text-align: center;
+	background-color: white;
+}
+.Agregar{
+	text-align: center;
+	width: 90%;
+	margin: 2em;
+}
+.colores{
+	margin: 0.5em;
+}
+
+.ROJO{
+	background-color: #FF0000;
+}
+
+.VERDE{
+	background-color: #00FF00;
+}
+
+.AMARILLO{
+	background-color: #FFFF00;
+}
+
+.AZUL{
+	background-color: #0000FF;
+}
+
+.NEGRO{
+	background-color: #000000;
+}
+
+.NARANJA{
+	background-color: #ff6600;
+}
+
+.RAMIROBITCH{
+	background-color: #f0f0f0;
+}
+
